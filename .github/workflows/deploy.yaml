@@ -1,0 +1,31 @@
+name: Deploy to Server
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up SSH key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+
+            - name: Adding Known Hosts
+              run: ssh-keyscan -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
+
+            - name: Copy code to server
+              run: ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "cd projects/cat-as-a-service/ && git pull"
+
+            - name: Build and Update Package
+              run: ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "source .nvm/nvm.sh && cd projects/cat-as-a-service && yarn && yarn build"
+
+            - name: restart pm2 service
+              run: ssh -o StrictHostKeyChecking=no -p ${{ secrets.SERVER_SSH_PORT }} ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_IP }} "source .nvm/nvm.sh && pm2 restart cat-api"
