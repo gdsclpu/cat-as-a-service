@@ -3,11 +3,11 @@ import mongoose from "mongoose";
 const catSchema = new mongoose.Schema(
     {
         sno: {
-            type: String,
+            type: Number,
             required: true,
         },
         catid: {
-            type: String,
+            type: Number,
             required: true,
         },
         url: {
