@@ -1,5 +1,5 @@
 {
-  "name": "cat-as-a-service-test",
+  "name": "cat-as-a-service",
   "version": "1.0.0",
   "main": "index.ts",
   "repository": "git@github.com:gdsclpu/cat-as-a-service.git",
