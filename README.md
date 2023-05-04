@@ -1,6 +1,6 @@
 # 🐱 Cat-as-a-service API 🐾
 
-Welcome to the Cat-as-a-service API! This API allows you to retrieve random pictures and information about cats, and is perfect for any cat lover out there. 
+Welcome to the Cat-as-a-service API! This API allows you to retrieve random pictures and information about cats, and is perfect for any cat lover out there.
 
 ## 🚀 Getting Started
 
@@ -63,11 +63,11 @@ The response from the API will be in the following format:
 
 ## 🛠️ Built With
 
-This API was built using Node.js and Express.js, and uses the Cat API to retrieve information about cats. 
+This API was built using Node.js and Express.js, and uses the Cat API to retrieve information about cats.
 
 ## 👨‍💻 Contributing
 
-If you would like to contribute to this project, feel free to fork the repository and submit a pull request. 
+If you would like to contribute to this project, feel free to fork the repository and submit a pull request.
 
 ## 📝 License
 
