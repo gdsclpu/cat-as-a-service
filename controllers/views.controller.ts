@@ -18,6 +18,7 @@ export default class ViewsController {
   };
 
   public docs = (req: Request, res: Response) => {
-    res.render("partials/coming_soon", { title: "Docs" });
+    // res.render("partials/coming_soon", { title: "Docs" });
+    res.redirect("https://documenter.getpostman.com/view/23153445/2s93eX1D1A")
   };
 }
