@@ -34,6 +34,9 @@ app.use(express.static("public"));
 app.use("/", routes);
 
 app.use((req, res, next) => {
+  if (!req.url.includes("/api")) {
+    return res.render("partials/_404", { title: "404 Not Found" });
+  }
   next(new NotFoundError());
 });
 
@@ -44,6 +47,13 @@ app.use(
     res: express.Response,
     next: express.NextFunction
   ) => {
+    if (!req.url.includes("/api")) {
+      return res.render("partials/_500", {
+        title: "500 Internal Server Error",
+        error,
+      });
+    }
+
     customErrorHandler(res, error);
   }
 );

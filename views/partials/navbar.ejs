@@ -1,0 +1,31 @@
+<nav class="w-full bg-primary py-5 flex justify-around">
+    <a href="/" class="text-xl text-white mr-10 font-bold ml-10">Cat as a Service</a>
+
+    <ul class="flex ml-10 items-center justify-center">
+        <li>
+
+            <a href="/"
+                class="px-5 py-3 text-md transition-all hover:text-white <%= title.toLowerCase().includes('cat') ? 'text-white' : 'text-gray-300' %>">Home</a>
+        </li>
+
+        <li>
+            <a href="/about"
+                class="px-5 py-3 text-md transition-all hover:text-white <%= title.toLowerCase().includes('about') ? 'text-white' : 'text-gray-300' %>">About</a>
+        </li>
+
+        <li>
+            <a href="/contact"
+                class="px-5 py-3 text-md transition-all hover:text-white <%= title.toLowerCase().includes('contact') ? 'text-white' : 'text-gray-300' %>">Contact</a>
+        </li>
+
+        <li>
+            <a href="/cats"
+                class="px-5 py-3 text-md transition-all hover:text-white <%= title.toLowerCase().includes('cats') ? 'text-white' : 'text-gray-300' %>">Cats</a>
+        </li>
+
+        <li>
+            <a href="/docs"
+                class="px-5 py-3 text-md transition-all hover:text-white <%= title.toLowerCase().includes('docs') ? 'text-white' : 'text-gray-300' %>">Docs</a>
+        </li>
+    </ul>
+</nav>
